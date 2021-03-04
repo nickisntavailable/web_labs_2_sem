@@ -59,10 +59,10 @@ header {
             max-height: 100px;
             
         }
-        i {
-            flex-basis: 0;
-            flex-grow: 1;
-        }
+        // i {
+        //     flex-basis: 0;
+        //     flex-grow: 1;
+        // }
         span {
             flex-basis: 0;
             flex-grow: 4;
@@ -160,7 +160,10 @@ header {
     display: block;
     background-image: url(../assets/icons/showers.png);
     background-size: contain;
-    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 100%;
+    border: 2px solid rgb(130, 142, 189);
     width: 150px;
     height: 150px;
     
@@ -312,10 +315,17 @@ header {
     .city .icon.small {
         margin-right: 20%;
     }
+    .city h3 {
+        display: inline-block;
+        width: 100%;
+    }
     .choosen {
         .choosen_city{
             h3 {
                 font-size: 32px;
+            }
+            img {
+                width: 100px;
             }
             .degs {
                 font-size: 70px;
