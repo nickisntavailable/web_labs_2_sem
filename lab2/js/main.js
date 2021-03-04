@@ -160,7 +160,7 @@ function showPosition(position) {
         longitude: position.coords.longitude
     };
     getCity(currentPos);
-    getWeather(currentPos, 0 , true);
+    // getWeather(currentPos, 0 , true);
 }
 function createCityVidget(data) {
 
