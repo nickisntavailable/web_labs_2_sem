@@ -9,13 +9,13 @@
 <body>
     <header>
         <h1>Погода здесь</h1>
-        <button><img src="refresh.png" class="refresh"><p>Обновить геолокацию</p></button>
+        <button id="refresh"><img src="refresh.png" class="refresh"><p>Обновить геолокацию</p></button>
     </header>
     <main>
-        <div class="choosen">
+        <div class="choosen hidden">
             <div class="choosen_city">
-                <h3>Saint-Petersburg</h3>
-                <i class="icon">Иконка погоды</i>
+                <h3 id="main_city">Saint-Petersburg</h3>
+                <img class="icon">
                 <span class="degs">8&degC</span>
             </div>
             <ul class="info">
@@ -24,7 +24,7 @@
                     <p>Moderate breeze, 6.0 m/s, North-northwes</p>
                 </li>
                 <li>
-                    <p>Облачность</p>
+                    <p>Описание</p>
                     <p>Broken clouds</p>
                 </li>
                 <li>
@@ -41,16 +41,28 @@
                 </li>
             </ul>
         </div>
+        <div class="dwnld">
+            <p>Подождите, данные загружаются</p>
+            <img src="refresh.png">
+        </div>
         <div class="fav">
             <h2>Избранное</h2>
-            <form>
+            <div class="form">
                 <input type="text" placeholder="Добавить новый город">
-                <button class="btn">+</button>
-            </form>
-            <div class="city">
+                <button class="plus_btn">+</button>
+            </div>
+                <!-- <div class="city">
+                    <h3>Mosc</h3>
+                    <button class="btn">x</button>
+                    <div class="dwnld">
+                        <p>Подождите</p>
+                        <img src="refresh.png" alt="">
+                    </div>
+                </div> -->
+            <!-- <div class="city">
                 <h3>Moscow</h3>
                 <span class="degs small">5&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -78,7 +90,7 @@
             <div class="city">
                 <h3>Helsinki</h3>
                 <span class="degs small">3&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -106,7 +118,7 @@
             <div class="city">
                 <h3>Moscow</h3>
                 <span class="degs small">5&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -134,7 +146,7 @@
             <div class="city">
                 <h3>Helsinki</h3>
                 <span class="degs small">3&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -162,7 +174,7 @@
             <div class="city">
                 <h3>Moscow</h3>
                 <span class="degs small">5&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -190,7 +202,7 @@
             <div class="city">
                 <h3>Helsinki</h3>
                 <span class="degs small">3&degC</span>
-                <i class="icon small">Иконка погоды</i>
+                <img class="icon small">
                 <button class="btn">x</button>
                 <ul class="info">
                     <li>
@@ -214,9 +226,10 @@
                         <p>[59.88, 30.42]</p>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </main>
     <footer></footer>
+    <script src="js/main.js"></script>
 </body>
 </html>

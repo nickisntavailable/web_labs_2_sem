@@ -10,7 +10,7 @@ body {
 }
 h1, h2, h3{ 
 
-    color: rgb(133, 146, 170);
+    color: #8592aa;
     margin: 0;
     font-weight: 400;
 }
@@ -72,6 +72,30 @@ header {
     .info {
         width: 48%;
     }
+    &.hidden {
+        display: none;
+    }
+}
+.dwnld {
+    display: block;
+    text-align: center;
+    height: 80%;
+    p {
+        color: #8592aa;
+        font-size: 25px;
+    }
+    img {
+        width: 15%;
+        border: none;
+        border-radius: 10px;
+        padding: 15px 35px;
+        background-color: #8da8c5;
+        color: #444444;
+    }
+    &.hidden {
+        display: none;
+    }
+    
 }
 .fav {
     display: grid;
@@ -102,7 +126,7 @@ header {
             padding-left: 4%;
         }
     }
-    form {
+    .form {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -114,6 +138,7 @@ header {
             color: #8c8c8c;
             font-weight: bold;
             margin-right: 20px;
+            outline: none;
         }
     }
 }
@@ -131,23 +156,47 @@ header {
     }
 }
 .icon { 
-    display: flex;
+    // content: '';
+    display: block;
+    background-image: url(../assets/icons/showers.png);
+    background-size: contain;
+    border: none;
     width: 150px;
     height: 150px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 3px solid rgb(133, 146, 170);
-    padding: 20px;
-    font-size: 20px;
-    margin-top: 20px;
+    
     &.small {
-        display: inline-block;
+
         width: 50px;
-        height: auto;
-        font-size: 13px;
+        height: 50px;
         margin: 0;
         padding: 0;
+    }
+    &.clear_sky {
+        background-image: url(../assets/icons/sunny.png);
+    }
+    &.few_clouds {
+        background-image: url(../assets/icons/partly-cloudy.png);
+    }
+    &.scattered_clouds {
+        background-image: url(../assets/icons/cloudy.png);
+    }
+    &.broken_clouds {
+        background-image: url(../assets/icons/mostly-cloudy.png);
+    }
+    &.shower_rain {
+        background-image: url(../assets/icons/showers.png);
+    }
+    &.rain {
+        background-image: url(../assets/icons/drizzle.png);
+    }
+    &.thunderstorm {
+        background-image: url(../assets/icons/thunderstorm.png);
+    }
+    &.snow {
+        background-image: url(../assets/icons/snow.png);
+    }
+    &.mist {
+        background-image: url(../assets/icons/foggy.png);
     }
 }
 .degs {
@@ -158,7 +207,7 @@ header {
         font-size: 40px;
     }
 }
-.btn {
+.btn, .plus_btn {
     width: 32px;
     height: 32px;
     border-radius: 100%;
@@ -175,7 +224,9 @@ header {
     .info {
         font-size: 14px;
     }
-    
+    .dwnld img {
+        width: 20%;
+    }
     .choosen {
         .degs {
             font-size: 80px;
@@ -190,6 +241,9 @@ header {
 
 }
 @media (max-width: 768px) {
+    .dwnld {
+        width: 100%;
+    }
     body {
         padding: 5%;
     }
@@ -249,6 +303,9 @@ header {
     }
 }
 @media (max-width:425px) {
+    .dwnld img {
+        width: 30%;
+    }
     body {
         padding: 7%;
     }
@@ -318,4 +375,5 @@ header {
             font-size: 10px;
         }
     }
+    
 }
