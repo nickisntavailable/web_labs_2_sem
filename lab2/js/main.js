@@ -38,10 +38,7 @@ function getCity(currentPos) {
   fetch(url, options)
     .then(response => response.json())
     .then(result => {
-      // const title = document.getElementById('main_city');
-      // title.innerText = result['suggestions'][0]['data']['city'];
       getWeather(0, result['suggestions'][0]['data']['city'], 1)
-      // console.log(result['suggestions'][0]['data']['city']);
     })
     .catch(error => console.log("error", error));
 }
@@ -118,7 +115,6 @@ function changeMain(data) {
 function getWeather(currentPos, city, main) {
   let urlLL;
   if(currentPos != 0) {
-    // console.log("Hello");
     urlLL = `https://api.openweathermap.org/data/2.5/weather?lat=${currentPos.latitude}&lon=${currentPos.longitude}&appid=${apiKey}&units=metric`;
   } else {
     urlLL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -129,7 +125,6 @@ function getWeather(currentPos, city, main) {
       .then(response => response.json())
       .then(data => {
         changeMain(data);
-
       })
       .catch(() => {
         console.log("Please search for a valid city 😩");
@@ -170,7 +165,7 @@ function showPosition(position) {
 function createCityVidget(data) {
 
   const fav = document.getElementsByClassName('fav')[0];
-  const elToDel = document.getElementsByClassName(data.name.toLowerCase())[0];
+  const elToDel = document.getElementsByClassName('del')[0];
   console.log(elToDel);
   if(elToDel) {
     elToDel.remove();
@@ -247,7 +242,7 @@ function createCityVidget(data) {
 function createEmptyVidget(name) {
   const fav = document.getElementsByClassName('fav')[0];
   let city = document.createElement('div');
-  city.className = 'city ' + name.toLowerCase();
+  city.className = 'city del';
   let h3 = document.createElement('h3');
   h3.innerHTML = name;
   city.append(h3);
