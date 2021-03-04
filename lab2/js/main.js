@@ -38,7 +38,7 @@ function getCity(currentPos) {
   fetch(url, options)
     .then(response => response.json())
     .then(result => {
-      getWeather(0, result['suggestions'][0]['data']['city'], 1)
+      getWeather(result['suggestions'][0]['data']['city'], 1)
     })
     .catch(error => console.log("error", error));
 }
@@ -112,45 +112,37 @@ function changeMain(data) {
 }
 
 
-function getWeather(currentPos, city, main) {
-  let urlLL;
-  if(currentPos != 0) {
-    urlLL = `https://api.openweathermap.org/data/2.5/weather?lat=${currentPos.latitude}&lon=${currentPos.longitude}&appid=${apiKey}&units=metric`;
-  } else {
-    urlLL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  }
-  
+async  function getWeather(city, main) {
+  let urlLL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   if(main) {
-    fetch(urlLL)
-      .then(response => response.json())
-      .then(data => {
-        changeMain(data);
-      })
-      .catch(() => {
-        console.log("Please search for a valid city 😩");
-      });
+    try {
+      let resp =  await fetch(urlLL);
+      let data = await resp.json();
+      changeMain(data);
+    } catch(err) {
+      console.log("Please search for a valid city 😩");
+    }
+    
   } else {
-    createEmptyVidget(city);
+    try{
+      createEmptyVidget(city);
+      let resp =  await fetch(urlLL);
+      let data = await resp.json();
+      createCityVidget(data);
+    } catch(err) {
+      console.log("Please search for a valid city 😩");
+      alert("Please search for a valid city 😩");
+    }
+
     // setTimeout(()=>{
 
     // }, 1000000);
-    fetch(urlLL)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        createCityVidget(data);
-
-      })
-      .catch(() => {
-        console.log("Please search for a valid city 😩");
-        alert("Please search for a valid city 😩");
-      });
   }
   
 }
 function errorPos(err){
   console.log("Geolocation declined by user. " + err);
-  getWeather(0, defaultCity, true);
+  getWeather(defaultCity, true);
 }
 
 
@@ -160,7 +152,6 @@ function showPosition(position) {
         longitude: position.coords.longitude
     };
     getCity(currentPos);
-    // getWeather(currentPos, 0 , true);
 }
 function createCityVidget(data) {
 
@@ -273,7 +264,7 @@ function addCity(e) {
       }
     }
     if(!city) {
-      getWeather(0, e.target.parentNode.childNodes[1].value, false);
+      getWeather(e.target.parentNode.childNodes[1].value, false);
     }
     
   }
@@ -304,6 +295,6 @@ input.addEventListener('keydown', (e) => {
 // localStorage.setItem('Helsinki', '');
 let keys = Object.keys(localStorage);
 for(let key of keys) {
-  getWeather(0, key, false);
+  getWeather(key, false);
 }
 
