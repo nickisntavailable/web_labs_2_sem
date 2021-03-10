@@ -119,6 +119,7 @@ async  function getWeather(city, main) {
       let resp =  await fetch(urlLL);
       let data = await resp.json();
       changeMain(data);
+      // console.log(data);
     } catch(err) {
       console.log("Please search for a valid city 😩");
     }
@@ -145,7 +146,6 @@ function errorPos(err){
   getWeather(defaultCity, true);
 }
 
-
 function showPosition(position) {
     currentPos = {
         latitude: position.coords.latitude,
@@ -154,7 +154,7 @@ function showPosition(position) {
     getCity(currentPos);
 }
 function createCityVidget(data) {
-
+  console.log(data);
   const fav = document.getElementsByClassName('fav')[0];
   const elToDel = document.getElementsByClassName('del')[0];
   console.log(elToDel);
@@ -297,4 +297,3 @@ let keys = Object.keys(localStorage);
 for(let key of keys) {
   getWeather(key, false);
 }
-

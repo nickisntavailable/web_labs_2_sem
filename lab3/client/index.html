@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <header>
+        <h1>Погода здесь</h1>
+        <button id="refresh"><img src="refresh.png" class="refresh"><p>Обновить геолокацию</p></button>
+    </header>
+    <main>
+        <div class="choosen hidden">
+            <div class="choosen_city">
+                <h3 id="main_city">Saint-Petersburg</h3>
+                <img class="icon" src="/lab3/client/assets/icons/snow.png">
+                <span class="degs">8&degC</span>
+            </div>
+            <ul class="info">
+                <li>
+                    <p>Ветер</p>
+                    <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                </li>
+                <li>
+                    <p>Описание</p>
+                    <p>Broken clouds</p>
+                </li>
+                <li>
+                    <p>Давление</p>
+                    <p>1013 hpa</p>
+                </li>
+                <li>
+                    <p>Влажность</p>
+                    <p>52 %</p>
+                </li>
+                <li>
+                    <p>Координаты</p>
+                    <p>[59.88, 30.42]</p>
+                </li>
+            </ul>
+        </div>
+        <div class="dwnld">
+            <p>Подождите, данные загружаются</p>
+            <img src="refresh.png">
+        </div>
+        <div class="fav">
+            <h2>Избранное</h2>
+            <div class="form">
+                <input type="text" placeholder="Добавить новый город">
+                <button class="plus_btn">+</button>
+            </div>
+                <!-- <div class="city">
+                    <h3>Mosc</h3>
+                    <button class="btn">x</button>
+                    <div class="dwnld">
+                        <p>Подождите</p>
+                        <img src="refresh.png" alt="">
+                    </div>
+                </div> -->
+            <!-- <div class="city">
+                <h3>Moscow</h3>
+                <span class="degs small">5&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="city">
+                <h3>Helsinki</h3>
+                <span class="degs small">3&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="city">
+                <h3>Moscow</h3>
+                <span class="degs small">5&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="city">
+                <h3>Helsinki</h3>
+                <span class="degs small">3&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="city">
+                <h3>Moscow</h3>
+                <span class="degs small">5&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="city">
+                <h3>Helsinki</h3>
+                <span class="degs small">3&degC</span>
+                <img class="icon small">
+                <button class="btn">x</button>
+                <ul class="info">
+                    <li>
+                        <p>Ветер</p>
+                        <p>Moderate breeze, 6.0 m/s, North-northwes</p>
+                    </li>
+                    <li>
+                        <p>Облачность</p>
+                        <p>Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p>1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p>52 %</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p>[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </main>
+    <footer></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
